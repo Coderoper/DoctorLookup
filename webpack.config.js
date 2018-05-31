@@ -20,8 +20,8 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),   // new line
     new HtmlWebpackPlugin({
-      title: 'Weather Interface',
-      template: './src/weather.html',
+      title: 'BikeIndex',
+      template: './src/bikeindex.html',
       inject: 'body'
     }),
     new Dotenv()

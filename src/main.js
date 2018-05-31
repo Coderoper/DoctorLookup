@@ -4,15 +4,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 $(document).ready(function() {
- $('#weatherLocation').click(function() {
-   let city = $('#location').val();
-   $('#location').val("");
+ $('#bikeManufacturer').click(function() {
+   let manufacturer = $('#manufacturer').val();
+   console.log("manufacturer: "+manufacturer);
+
+   $('#manufacturer').val("");
 
    let request = new XMLHttpRequest();
-   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`;
 
+  //  let url = 'https://bikeindex.org:443/api/v3/search?manufacturer=Trek&stolenness=stolen';
+   let url = `https://bikeindex.org:443/api/v3/search?manufacturer=${manufacturer}&stolenness=stolen`;
+   console.log(url);
    request.onreadystatechange = function() {
      if (this.readyState === 4 && this.status === 200) {
+       console.log("DONE");
        let response = JSON.parse(this.responseText);
        getElements(response);
      }
@@ -22,8 +27,9 @@ $(document).ready(function() {
    request.send();
 
    let getElements = function(response) {
-     $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
-     $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
+     console.log(response);
+     $('.manufacturer').text(`The manufacturer is ${manufacturer} is ${response.bikes[3].manufacturer_name}`);
+
    }
  });
 });
