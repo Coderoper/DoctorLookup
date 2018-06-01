@@ -1,7 +1,7 @@
 <html>
   <head>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../src/doctor-lookup.js"></script>
+    <!-- <script type="text/javascript" src="../src/doctor-lookup.js"></script> -->
     <title>DoctorLookup</title>
   </head>
   <body>
@@ -12,8 +12,15 @@
       <button class="btn-success" id="MedCondition">Get Doctors</button>
       <div class="errors"></div>
       <div class="condition"></div>
-      <div class="firstName"></div>
       <!-- <div class="showTemp"></div> -->
     </div>
+  <div class="container" class="col-md-5">
+    <h4 id="showFirstName"></h4>
+    <ol id="firstName">
+    </ol>
+  </div>
+    <h5 id="noResults"></h5>
+
+
   </body>
 </html>

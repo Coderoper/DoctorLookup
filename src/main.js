@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import {DoctorLookup} from './doctor-lookup.js'
+// import {DoctorLookup} from './doctor-lookup.js'
 
 $(document).ready(function() {
  $('#MedCondition').click(function() {
@@ -12,11 +12,11 @@ $(document).ready(function() {
    let request = new XMLHttpRequest();
    let condition = $("#condition").val();
 
-   console.log(">>>>>>>>>>>>>>>>condition" + condition)
+  //  console.log(">>>>>>>>>>>>>>>>condition" + condition)
    request.onreadystatechange = function() {
      if (this.readyState === 4 && this.status === 200) {
-       console.log("DONE");
-       console.log(condition);
+      //  console.log("DONE");
+      //  console.log(condition);
 
        let response = JSON.parse(this.responseText);
        getElements(response);
@@ -29,12 +29,33 @@ $(document).ready(function() {
    request.send();
 
    let getElements = function(response) {
-     console.log(response);
-     console.log(`For the symyptom ${condition} these are the available doctors:`)
-     $('.condition').text(`For the symyptom ${condition} these are the available doctors:`)
-     $('.firstName').text(`First name: ${response.data[0].profile.first_name}`)
-    //  $('.condition').text(`The doctors name is ${response.data[0].profile.first_name}`);
-
+     $('.condition').text(`For the symyptom ${condition} these are the available doctors:`);
+     if(response.data !=0) {
+        for(let i=0; i<= response.data.length; i++) {
+        $('#showFirstName').text(`First Name`)
+        $('#firstName').append("<li><span>First Name:</span>" + JSON.stringify(response.data[i].profile.first_name + "</li>"))
+        }
+     } else{
+      $("#noResults").empty();
+      $('#noResults').append("<li><span>There are no doctors available</span></li>");
+    }
    }
  });
 });
+
+      //  console.log(response);
+      //  console.log(`For the symyptom ${condition} these are the available doctors:`)
+
+      //  $('.firstName').text(`First name: ${response.data.profile.first_name}`);
+      //  $('.condition').text(`The doctors name is ${response.data[0].profile.first_name}`);
+      // alert(response.data.length)
+    // }
+    // else {
+    //   $("#noResults").empty();
+    //   $('#noResults').append("<li><span>There are no doctors available</span></li>");
+    //
+    //
+    // }
+
+ // });
+// });
