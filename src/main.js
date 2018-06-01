@@ -30,14 +30,19 @@ $(document).ready(function() {
 
    let getElements = function(response) {
      $('.condition').text(`For the symyptom ${condition} these are the available doctors:`);
+     console.log(response);
+     let listlength=10;
+    //  if("true" == "true"){
      if(response.data !=0) {
         for(let i=0; i<= response.data.length; i++) {
+        // for(let i=0; i<= listlength; i++) {
         $('#showFirstName').text(`First Name`)
         $('#firstName').append("<li><span>First Name:</span>" + JSON.stringify(response.data[i].profile.first_name + "</li>"))
+        // $('#firstName').append("<li><span>this is my list:</span> </li>")
         }
-     } else{
+     } else {
       $("#noResults").empty();
-      $('#noResults').append("<li><span>There are no doctors available</span></li>");
+      $('#noResults').append("<span>There are no doctors available</span>");
     }
    }
  });

@@ -1,6 +1,7 @@
 .container{
   padding: 10px;
 }
-li{
+span{
   border-left: 10px;
+  padding: 20px;
 }
