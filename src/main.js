@@ -8,7 +8,8 @@ $(document).ready(function() {
  $('#MedCondition').click(function() {
 
   //  let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=sore%20throat&location=47.602084%2C%20-122.333312%2C100&user_location=47.602084%2C%20-122.333312&skip=0&limit=10&user_key=286ec2bfb7ac3a5693ba2b0be2a099eb`;
-   let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${condition}=47.602084%2C%20-122.333312%2C100&user_location=47.602084%2C%20-122.333312&skip=0&limit=10&user_key=286ec2bfb7ac3a5693ba2b0be2a099eb`;
+  //  let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${condition}=47.602084%2C%20-122.333312%2C100&user_location=47.602084%2C%20-122.333312&skip=0&limit=10&user_key=286ec2bfb7ac3a5693ba2b0be2a099eb`;
+   let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${condition}=47.602084%2C%20-122.333312%2C100&user_location=47.602084%2C%20-122.333312&skip=0&limit=10&user_key=${process.env.apiKey}`;
    let request = new XMLHttpRequest();
    let condition = $("#condition").val();
 
