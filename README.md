@@ -16,7 +16,7 @@ A program that returns a list of doctors given a medical issue.
 * 4. If the query response doesn't include any doctors (for instance, if no doctors meet the search criteria), the application should return a notification that states that no doctors meet the criteria. (This is not an error so it should be handled separately from any errors.)
 
 ## Setup/Installation Requirements
-
+* create a .env file and name your api key "apiKey"
 * Install Node package manager in terminal: $ brew install node
 * Install Homebrew in terminal with command: $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 * Update Homebrew with terminal command: $ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile

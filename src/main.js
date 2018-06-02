@@ -32,7 +32,7 @@ $(document).ready(function() {
    let getElements = function(response) {
      $('.condition').text(`For the symyptom ${condition} these are the available doctors:`);
      console.log(response);
-     let listlength=10;
+    //  let listlength=10;
     //  if("true" == "true"){
      if(response.data !=0) {
         for(let i=0; i<= response.data.length; i++) {
